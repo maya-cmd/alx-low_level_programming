@@ -6,6 +6,5 @@
  */
 int main(void)
 {
-    puts("Programming is like building a multilingual puzzle");
+    printf("size of char: %d byte(s), sizeofchar\n");
     return (0);
-}
