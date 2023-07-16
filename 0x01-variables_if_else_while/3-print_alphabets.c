@@ -10,7 +10,10 @@
 int main(void)
 {
 char c, result;
-
+for (c = 'a'; c <= 'z'; c++)
+{
+putchar (c);
+}
 for (c = 'a'; c <= 'z'; c++)
 {
 result = toupper(c);
