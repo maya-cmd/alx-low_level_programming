@@ -21,5 +21,6 @@ int main(void)
 			putchar(i - 10 + 'a');
 		}
 	}
-	return (0);
+putchar('\n');
+return (0);
 }
