@@ -10,6 +10,7 @@ int main(void)
 {
 	int digits[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	int num_digits = sizeof(digits) / sizeof(digits[0]);
+	int i, j;
 
 	for (int i = 0; i < num_digits; i++)
 	{
