@@ -8,19 +8,18 @@
  */
 int main(void)
 {
-	int digits[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-	int num_digits = sizeof(digits) / sizeof(digits[0]);
-	int i, j;
+	int i;
 
-	for (i = 0; i < num_digits; i++)
+	for (i = 0; i <= 9; i++)
 	{
-		for (j = 0; j < num_digits; j++)
+		putchar(i + '0');
+		if (i < 9)
 		{
-			putchar(digits[i] + '0');
+			putchar(',');
 			putchar(' ');
-			putchar(digits[j] + '0');
-			putchar('\n');
 		}
 	}
+
+putchar('\n');
 return (0);
 }
