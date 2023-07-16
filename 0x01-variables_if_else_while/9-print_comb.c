@@ -12,9 +12,9 @@ int main(void)
 	int num_digits = sizeof(digits) / sizeof(digits[0]);
 	int i, j;
 
-	for (int i = 0; i < num_digits; i++)
+	for (i = 0; i < num_digits; i++)
 	{
-		for (int j = 0; j < num_digits; j++)
+		for (j = 0; j < num_digits; j++)
 		{
 			putchar(digits[i] + '0');
 			putchar(' ');
