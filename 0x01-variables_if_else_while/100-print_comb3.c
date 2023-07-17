@@ -12,15 +12,15 @@ int main(void)
 
 		for (i = 0; i < 9; i++)
 		{
-			for (j = 0; j < 10; j++)
+			for (j = i + 1; j < 10; j++)
 			{
 				if (i != j)
 				{
 					putchar('0' + i);
 					putchar('0' + j);
-					putchar('\n');
 				}
 			}
 		}
+putchar('\n');
 return (0);
 }
