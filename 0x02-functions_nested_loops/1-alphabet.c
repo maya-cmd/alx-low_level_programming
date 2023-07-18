@@ -1,11 +1,11 @@
 #include "main.h"
+
 /**
- * The main.h header that contains the prototype is included
- * _putchar - writes the character c to stdout
+ * print_alphabet - function prints alphabet in lowercase
  *
- * The function iterates through the letters
- * and prints characters using _putchar.
+ * Description: prints alphabet letters in lowecase
  */
+
 void print_alphabet(void)
 {
 	char c;
