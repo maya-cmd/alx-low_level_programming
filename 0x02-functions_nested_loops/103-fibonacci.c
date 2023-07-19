@@ -5,19 +5,20 @@
  * Return: Always 0 (Success)
  */
 
+#include <stdio.h>
+
 int main(void)
 {
 int i = 0;
 long j = 1, k = 2, sum = k;
 
-while (k <= 4000000)
+while (k + j <= 4000000)
 {
+k = j;
 if (k % 2 == 0)
 sum += k;
-
-long next = j + k;
-j = k;
-k = next;
+j = k + j;
+++i;
 }
 
 printf("%ld\n", sum);
