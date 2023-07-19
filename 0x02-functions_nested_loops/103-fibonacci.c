@@ -4,23 +4,20 @@
  *
  * Return: Always 0 (Success)
  */
-
-#include <stdio.h>
-
 int main(void)
 {
-int i = 0;
-long j = 1, k = 2, sum = k;
+int i = 1, j = 2, total = 0;
+int k;
 
-while (k + j <= 4000000)
+while (j < 4000000)
 {
-k = j;
-if (k % 2 == 0)
-sum += k;
-j = k + j;
-++i;
-}
+if (j % 2 == 0)
+total += j;
 
-printf("%ld\n", sum);
+k = j;
+j += i;
+i = k;
+}
+printf("%d\n", total);
 return (0);
 }
