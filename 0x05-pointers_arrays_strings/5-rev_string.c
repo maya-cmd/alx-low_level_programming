@@ -7,8 +7,9 @@
  */
 void rev_string(char *s)
 {
+int len;
 int left = 0;
-int right = strlen(s) - 1;
+int right = len(s) - 1;
 char temp;
 
 while (left < right)
