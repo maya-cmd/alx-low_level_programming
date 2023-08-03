@@ -12,7 +12,9 @@ int _real_sqrt(int a, int n);
  */
 int _sqrt_recursion(int n)
 {
-	return (_real_sqrt(n, 1));
+	if (n < 0)
+		return (-1);
+	return (_real_sqrt(n, 0));
 }
 
 /**
