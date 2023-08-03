@@ -26,11 +26,10 @@ int _sqrt_recursion(int n)
  */
 int _real_sqrt(int a, int n)
 {
-	int square_root = a * a;
 
-	if (square_root == n)
+	if (a * a == n)
 		return (a);
-	if (square_root > n)
+	if (a * a  > n)
 		return (-1);
 	return (_real_sqrt(n, a + 1));
 }
