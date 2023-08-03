@@ -14,7 +14,7 @@ int _sqrt_recursion(int n)
 {
 	if (n < 0)
 		return (-1);
-	return (_real_sqrt(n, 0));
+	return (_real_sqrt(n, 1));
 }
 
 /**
@@ -28,9 +28,9 @@ int _real_sqrt(int a, int n)
 {
 	int square_root = a * a;
 
-	if (square_root > n)
-		return (-1);
 	if (square_root == n)
 		return (a);
+	if (square_root > n)
+		return (-1);
 	return (_real_sqrt(n, a + 1));
 }
