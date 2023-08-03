@@ -31,5 +31,5 @@ int _real_sqrt(int a, int n)
 		return (a);
 	if (a * a  > n)
 		return (-1);
-	return (_real_sqrt(n, a + 1));
+	return (_real_sqrt(a + 1, n));
 }
