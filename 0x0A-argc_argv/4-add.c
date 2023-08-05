@@ -13,32 +13,75 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
-	unsigned int n, addition = 0;
+int addition, num, a, b, n;
 
-	if (argc > 1)
-	{
-		for (i = 1; i < argc; i++)
-		{
-			for (n = 0; argv[i][n] != '\0'; n++)
-			{
-				if (!isdigit(argv[i][n]))
-				{
-					printf("Error: %s\n", argv[i]);
-					return (1);
-				}
-			}
+addition = 0;
 
-			addition += atoi(argv[i]);
-		}
-		printf("%d", addition);
-	}
-	else
-	{
-		printf("0\n");
-	}
-	return (0);
+for (a = 1; a < argc; a++)
+{
+for (b = 0; argv[a][b] != '\0'; b++)
+{
+if (argv[a][b] > '9' || argv[a][b] < '0')
+{
+puts("Error");
+return (1);
+}
+}
 }
 
+for (n = 1; n < argc; n++)
+{
+num = atoi(argv[n]);
+if (num >= 0)
+{
+addition += num;
+}
+}
 
+printf("%d\n", addition);
+return (0);
+}
+/**
+ *_atoi - Function converts string to integer
+ *@s : The string
+ *
+ *Return: An integer
+ *
+ */
+int _atoi(char *s)
+{
 
+int i = 0;
+int j = 0;
+int k = 0;
+int length = 0;
+int l = 0;
+int number = 0;
+
+while (s[length] != '\0')
+length++;
+
+while (i < length && l == 0)
+{
+if (s[i] == '-')
+++j;
+
+if (s[i] >= '0' && s[i] <= '9')
+{
+number = s[i] - '0';
+if (j % 2)
+number = -number;
+k = k * 10 + number;
+l = 1;
+if (s[i + 1] < '0' || s[i + 1] > '9')
+break;
+l = 0;
+}
+i++;
+}
+
+if (l == 0)
+return (0);
+
+return (k);
+}
