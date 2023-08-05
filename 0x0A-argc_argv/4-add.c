@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 			x = argv[i];
 			for (n = 0; n < strlen(x); n++)
 			{
-				if (x[n] < 48 || x[n] > 57)
+				if (x[n] < '0' || x[n] > '9')
 				{
 					printf("Error\n");
 					return (1);
@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 			}
 
 			addition += atoi(x);
-			n++;
 		}
 		printf("%d", addition);
 	}
