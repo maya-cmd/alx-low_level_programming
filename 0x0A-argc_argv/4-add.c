@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		for (i = 1; i < argc; i++)
+		for (i = 0; i < argc; i++)
 		{
 			x = argv[i];
 			for (n = 0; n < strlen(x); n++)
