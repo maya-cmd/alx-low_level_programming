@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	length2 = _length(str2);
 	length3 = length1 + length2 + 1;
 
-	outcome = malloc(sizeof(int) * length3);
+	outcome = (int *) malloc(sizeof(int) * length3);
 		if (!outcome)
 		return (1);
 
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 			outcome[length1 + length2 + 1] += overflow;
 	}
 
-	for (j = 0; j < length1 + length2; j++)
+	for (j = 0; j < length3 - 1; j++)
 	{
 		if (outcome[j])
 			k = 1;
