@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 	argument1 = atoi(argv[1]);
 	argument2 = atoi(argv[3]);
@@ -29,12 +29,12 @@ int main(int argc, char *argv[])
 	if (!operation)
 	{
 		printf("Error\n");
-		return (99);
+		exit(99);
 	}
 	if ((operator == '/' || operator == '%') && argument2 == 0)
 	{
 		printf("Error\n");
-		return (100);
+		exit(100);
 	}
 
 	printf("%d\n", operation(argument1, argument2));
