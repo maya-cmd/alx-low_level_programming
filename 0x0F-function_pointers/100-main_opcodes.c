@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
 	{
 		if (n == bytes - 1)
 		{
-			printf("%.2x\n", (unsigned char)mem[n]);
-			break;
+			printf(" ", (unsigned char)mem[n]);
+			continue;
 		}
 		else
 		{
@@ -41,4 +41,6 @@ int main(int argc, char *argv[])
 		}
 		n++;
 	}
+	printf("\n");
+	return (0);
 }
