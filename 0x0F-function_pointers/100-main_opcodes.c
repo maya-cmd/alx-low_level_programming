@@ -33,12 +33,12 @@ int main(int argc, char *argv[])
 	{
 		if (n == bytes - 1)
 		{
-			printf("%.2x\n", mem[n]);
+			printf("%.2x\n",(unsigned char)mem[n]);
 			break;
 		}
 		else
 		{
-			printf("%.2x ", mem[n]);
+			printf("%.2x ", (unsigned char)mem[n]);
 		}
 		n++;
 	}
