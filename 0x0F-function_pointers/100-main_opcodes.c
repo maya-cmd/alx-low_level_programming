@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int bytes, n = 0;
-	unsigned char *mem;
+	char *mem;
 
 	if (argc != 2)
 	{
@@ -32,12 +32,12 @@ int main(int argc, char *argv[])
 	{
 		if (n == bytes - 1)
 		{
-			printf("%.2x\n ", (unsigned char)mem[n]);
+			printf("%02hhx\n", mem[n]);
 			break;
 		}
 		else
 		{
-			printf("%.2x ", (unsigned char)mem[n]);
+			printf("%02hhx ", mem[n]);
 		}
 		n++;
 	}
