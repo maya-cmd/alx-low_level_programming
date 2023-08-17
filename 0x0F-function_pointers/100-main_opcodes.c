@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int bytes, n = 0;
-	char *mem;
+	unsigned char *mem;
 
 	if (argc != 2)
 	{
@@ -26,14 +26,13 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
-
 	mem = (char *)main;
 
 	while (n < bytes)
 	{
 		if (n == bytes - 1)
 		{
-			printf("%.2x\n",(unsigned char)mem[n]);
+			printf("%.2x\n", (unsigned char)mem[n]);
 			break;
 		}
 		else
