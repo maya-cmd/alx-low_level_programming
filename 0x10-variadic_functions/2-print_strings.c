@@ -26,11 +26,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			str = "(nil)";
 		}
 
-		else if (j == 0 && separator)
+		if (j == 0 && separator)
 		{
 			printf("%s", str);
 		}
-		else if (!separator)
+		if (!separator)
 		{
 			printf("%s", str);
 		}
