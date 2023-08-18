@@ -37,7 +37,8 @@ void print_all(const char * const format, ...)
 				}
 				break;
 			default:
-				break;
+				j++;
+				continue;
 		}
 		if (format[j + 1])
 		{
