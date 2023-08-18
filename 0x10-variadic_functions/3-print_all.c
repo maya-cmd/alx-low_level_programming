@@ -29,9 +29,8 @@ void print_all(const char * const format, ...)
 			case 's':
 				next_str_arg = va_arg(arg_list, char *);
 				if (!next_str_arg)
-				{
-					printf("(nil)");
-				}
+					next_str_arg = "(nil)";
+
 				printf("%s%s", separator, next_str_arg);
 				break;
 			default:
