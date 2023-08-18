@@ -10,6 +10,7 @@ void print_all(const char * const format, ...)
 	va_list arg_list;
 	unsigned int j = 0;
 	char *next_str_arg;
+	char *separator;
 
 	va_start(arg_list, format);
 	while (format && format[j])
@@ -17,13 +18,13 @@ void print_all(const char * const format, ...)
 		switch (format[j])
 		{
 			case 'c':
-				printf("%c", va_arg(arg_list, int));
+				printf("%s%c", separator, va_arg(arg_list, int));
 				break;
 			case 'i':
-				printf("%d", va_arg(arg_list, int));
+				printf("%s%d", separator, va_arg(arg_list, int));
 				break;
 			case 'f':
-				printf("%f", va_arg(arg_list, double));
+				printf("%s%f", separator, va_arg(arg_list, double));
 				break;
 			case 's':
 				next_str_arg = va_arg(arg_list, char *);
@@ -33,17 +34,14 @@ void print_all(const char * const format, ...)
 				}
 				else
 				{
-				printf("%s", next_str_arg);
+				printf("%s%s", separator, next_str_arg);
 				}
 				break;
 			default:
 				j++;
 				continue;
 		}
-		if (format[j + 1])
-		{
-			printf(", ");
-		}
+		separator = ", ";
 		j++;
 	}
 	printf("\n");
