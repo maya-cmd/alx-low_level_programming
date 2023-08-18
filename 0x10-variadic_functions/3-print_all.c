@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 	va_list arg_list;
 	unsigned int j = 0;
 	char *next_str_arg;
-	char *separator;
+	char *separator = "";
 
 	va_start(arg_list, format);
 	while (format && format[j])
@@ -32,10 +32,7 @@ void print_all(const char * const format, ...)
 				{
 					printf("nil");
 				}
-				else
-				{
 				printf("%s%s", separator, next_str_arg);
-				}
 				break;
 			default:
 				j++;
