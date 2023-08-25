@@ -1,5 +1,7 @@
- #include <stdio.h>
-void before_main(void) __attribute__ ((constructor));
+#include<stdio.h>
+
+void __attribute__ ((constructor)) before_main(void);
+
 /**
  *before_main - Function ensure before main is executed,
  * a text is printed first
