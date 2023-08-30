@@ -31,22 +31,21 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = newestnode;
 		return (newestnode);
 	}
-	while (temp && j < idx - 1)
+	while (temp && j < idx)
 	{
 		temp = temp->next;
 		j++;
 	}
 
-	if (!temp)
+	if (j == idx - 1)
 	{
-		free(newestnode);
-		return (NULL);
+		newestnode->next = temp->next;
+		temp->next = newestnode;
+		return (newestnode);
+
 	}
 
-	newestnode->next = temp->next;
-	temp->next = newestnode;
-
-	return (newestnode);
+	return (NULL);
 }
 
 
