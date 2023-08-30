@@ -19,7 +19,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	newestnode = malloc(sizeof(listint_t));
 	if (!newestnode)
 		return (NULL);
-	if (!*head)
+	if (!head)
 		return (NULL);
 
 	newestnode->n = n;
