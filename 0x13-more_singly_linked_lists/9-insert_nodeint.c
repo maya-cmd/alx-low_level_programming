@@ -31,7 +31,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = newestnode;
 		return (newestnode);
 	}
-	while (temp && j < idx)
+	while (temp && j < idx - 1)
 	{
 		temp = temp->next;
 		j++;
