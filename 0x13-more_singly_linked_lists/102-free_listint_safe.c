@@ -9,7 +9,7 @@ size_t free_listint_safe(listint_t **h)
 {
 	listint_t *temp;
 	size_t freed_count = 0;
-	size_t address_difference;
+	int address_difference;
 
 	if (!h || !*h)
 		return (0);
