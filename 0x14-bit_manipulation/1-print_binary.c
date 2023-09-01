@@ -15,21 +15,22 @@ void print_binary(unsigned long int n)
 		printf("0");
 		return;
 	}
-	buffer = 1UL << (sizeof(unsigned long int) * 8 - 1);
 
-	while (buffer > 0)
+	buffer = n;
+	shift = 0;
+
+	while ((buffer >>= 1) > 0)
 	{
-		if (n & buffer)
-		{
-			shift = 0;
-			printf("1");
-		}
-		else if (!shift)
-		{
-			printf("0");
-		}
+		shift++;
+	}
 
-		buffer >>= 1;
+	while (shift >= 0)
+	{
+		if ((n >> shift) & 1)
+		printf("1");
+		else
+		printf("0");
+
+		shift--;
 	}
 }
-
