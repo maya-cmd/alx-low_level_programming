@@ -1,6 +1,7 @@
 #include "main.h"
 
 void close_open_files(int fd);
+char *buffer_buffer(char *file);
 
 /**
  *close_open_files - Function closes open files
@@ -21,10 +22,39 @@ void close_open_files(int fd)
 }
 
 /**
+ *buffer_buffer - Function puts aside 1024 bytes for a buffer
+ *@file: File that buffer is holding chars for
+ *
+ *Return:Pointer to the new buffer
+ */
+char *buffer_buffer(char *file)
+{
+	char *buffer;
+
+	buffer = malloc(sizeof(char) * 1024);
+
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", file);
+		exit(99);
+	}
+
+	return (buffer);
+}
+
+
+/**
  *main - Function copies contents of one file to another
  *@argc: Number of arguments given
  *@argv: Array of arguments pointers
  *Return: 0 on success
+ *
+ * Description:If number of arguments is incorrect exit with code 97.
+ * when the file_from isn’t there or can’t be read  exit with code 98.
+ * Incase file_to’s creation isn’t possible or can’t be
+ * written to  exit with code 99.
+ * If closing file_to or file_from is not possible use exit code 100.
  */
 int main(int argc, char *argv[])
 {
@@ -37,13 +67,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buffer = malloc(sizeof(char) * 1024);
-
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Memory allocation failed\n");
-		exit(1);
-	}
+	buffer = buffer_buffer(argv[2]);
 
 	file_from = open(argv[1], O_RDONLY);
 	read_result = read(file_from, buffer, 1024);
