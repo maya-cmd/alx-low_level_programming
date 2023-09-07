@@ -29,9 +29,9 @@ void close_open_files(int fd)
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, read_result, write_result;
-	char *buffer = malloc(BUFFER_SIZE);
-	const char *file_from;
-	const char *file_to;
+	char *buffer;
+	char *file_from;
+	char *file_to;
 
 	if (argc != 3)
 	{
@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 	}
 	file_from = argv[1];
 	file_to = argv[2];
+	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Memory allocation failed\n");
@@ -62,6 +63,7 @@ int main(int argc, char *argv[])
 		}
 		read_result = read(fd_from, buffer, BUFFER_SIZE);
 		write_result = write(fd_to, buffer, read_result);
+		fd_to = open(file_to, O_WRONLY | O_APPEND);
 	} while (read_result > 0);
 	free(buffer);
 	close_open_files(fd_from);
