@@ -29,7 +29,7 @@ void close_open_files(int fd)
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, read_result, write_result;
-	char *buffer;
+	char *buffer[1024];
 	char *file_from;
 	char *file_to;
 
@@ -40,33 +40,41 @@ int main(int argc, char *argv[])
 	}
 	file_from = argv[1];
 	file_to = argv[2];
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Memory allocation failed\n");
-		exit(1);
-	}
+
 	fd_from = open(file_from, O_RDONLY);
+	if (fd_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+
 	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
+		exit(99);
+	}
+
 	do {
-		if (fd_from == -1 || read_result == -1)
+		read_result = read(fd_from, buffer, sizeof(buffer));
+		if (read_result == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			free(buffer);
 			exit(98);
 		}
-		if (fd_to == -1 || write_result == -1)
+
+		write_result = write(fd_to, buffer, read_result);
+		if (write_result == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
-			free(buffer);
 			exit(99);
 		}
-		read_result = read(fd_from, buffer, BUFFER_SIZE);
-		write_result = write(fd_to, buffer, read_result);
-		fd_to = open(file_to, O_WRONLY | O_APPEND);
 	} while (read_result > 0);
-	free(buffer);
+
 	close_open_files(fd_from);
 	close_open_files(fd_to);
+
 	return (0);
 }
+
+
