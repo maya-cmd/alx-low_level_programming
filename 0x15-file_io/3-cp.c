@@ -16,7 +16,7 @@ void close_open_files(int fd)
 
 	if (result == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd\n");
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
