@@ -16,8 +16,8 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	shift = 0;
 	buff = n;
+	shift = 0;
 
 	while ((buff >>= 1) > 0)
 	{
