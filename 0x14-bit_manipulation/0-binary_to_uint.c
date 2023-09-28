@@ -14,6 +14,8 @@ unsigned int binary_to_uint(const char *b)
 	int k;
 	unsigned int counted_result;
 
+	counted_result = 0;
+
 	if (b == NULL)
 		return (0);
 	for (k = 0; b[k]; k++)
