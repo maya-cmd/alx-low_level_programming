@@ -9,19 +9,16 @@
  */
 int get_endianness(void)
 {
-	int i;
+	int i = 1;
 
-	i = get_endianness();
 
-	if (i != 0)
+	if (*(char *)&i == 1)
 	{
-		printf("Endian is small\n");
+		return (1);
 	}
 	else
 	{
-		printf("Endian is big\n");
+		return (0);
 	}
-
-	return (0);
 }
 
