@@ -37,7 +37,7 @@ void print_array(int *array, size_t start, size_t end)
 
 int binary_search(int *array, size_t size, int value)
 {
-	size_t midd;
+	size_t mid;
 	int output;
 
 	if (array == NULL || size == 0)
@@ -45,26 +45,26 @@ int binary_search(int *array, size_t size, int value)
 
 	print_array(array, 0, size);
 
-	midd = (size - 1) / 2;
+	mid = (size - 1) / 2;
 
-	if (array[midd] == value)
+	if (array[mid] == value)
 	{
-		if (midd == 0 || array[midd - 1] != value)
-			return (midd);
+		if (mid == 0 || array[mid - 1] != value)
+			return (mid);
 		else
-			return (binary_search(array, midd + 1, value));
-		return (midd);
+			return (binary_search(array, mid + 1, value));
+		return (mid);
 	}
 
-	else if (array[midd] > value)
+	else if (array[mid] > value)
 	{
-		return (binary_search(array, midd, value));
+		return (binary_search(array, mid, value));
 	}
 
 	else
 	{
-		output = binary_search(array + midd + 1, size - midd - 1, value);
-		return (output == -1 ? -1 : (int)(midd + 1 + output));
+		output = binary_search(array + mid + 1, size - mid - 1, value);
+		return (output == -1 ? -1 : (int)(mid + 1 + output));
 	}
 }
 
