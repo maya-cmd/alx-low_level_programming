@@ -6,7 +6,7 @@
 /**
  * jump_list - searches for a value in a sorted list of integers using the
  *             Jump search algorithm
- * @array: First element of the array to search for pointer.
+ * @array: The first element of the array to search for pointer.
  * @size: How many elements are in the array.
  * @value: The value to find.
  * Return: a pointer to the first node where value is located or NULL
