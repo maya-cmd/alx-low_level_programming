@@ -21,7 +21,7 @@ int binary_search(int *array, size_t size, int value)
 
 	while (l <= h)
 	{
-		printf("Searching through array: ");
+		printf("Searching in array: ");
 		for (i = l; i < h; i++)
 			printf("%d, ", array[i]);
 		printf("%d\n", array[i]);
@@ -63,7 +63,7 @@ int exponential_search(int *array, size_t size, int value)
 
 	min = bound < size ? bound : size - 1;
 
-	printf("Value between indexes [%lu] and [%lu]\n", bound / 2, min);
+	printf("Value found between indexes [%lu] and [%lu]\n", bound / 2, min);
 
 	subarray_size = min < size - bound / 2 ?
 		min - bound / 2 + 1 : size - bound / 2;
